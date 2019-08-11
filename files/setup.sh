@@ -91,9 +91,6 @@ $MNEMONIC
 EOM
 else
   mwc-wallet --floonet init -h
-
-EOM
-
 fi
 
   unset MWC_PASSWORD;
