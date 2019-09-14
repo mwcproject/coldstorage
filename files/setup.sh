@@ -101,6 +101,7 @@ then
   mwc-wallet --floonet init -h -r
   unset MWC_PASSWORD
   unset MWC_RECOVERY_PHRASE
+  echo "" | mwc-wallet restore
 else
   mwc-wallet --floonet init -h
 fi
