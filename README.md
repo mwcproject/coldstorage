@@ -27,7 +27,7 @@ For example:
 5.) Next, copy the chain_data from your MWC full node onto the usb drive into the 'node-files' directory. By default, your
 MWC full node's chain_data directory will be in ~/.mwc/main/chain_data, but copy them from wherever they are located if you did not use the defaults. Also, make sure to shut down your full node before copying the chain_data over:
 
-```# cp -rp ~/.mwc/main/chain_data <location_of_usb_drive>/node_files/```
+```# cp -rp ~/.mwc/main/chain_data <location_of_usb_drive>/node-files/```
 
 6.) Boot your USB stick OS so that you are in Ubuntu Linux.
 
