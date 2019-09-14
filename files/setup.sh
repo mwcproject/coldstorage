@@ -40,11 +40,15 @@ tar zxvf mwc-node-2.4.0-linux-amd64.tar.gz
 tar zxvf mwc-wallet-2.4.0-linux-amd64.tar.gz
 tar zxvf mwc713-2.4.0-linux-amd64.tar.gz
 
-mv mwc/mwc .
-mv mwc713/mwc713 .
-mv mwc-wallet/mwc-wallet .
+mv mwc mwc1
+mv mwc713 mwc7131
+mv mwc-wallet mwc-wallet1
 
-rm -rf *.tgz
+mv mwc1/mwc .
+mv mwc7131/mwc713 .
+mv mwc-wallet1/mwc-wallet .
+
+rm -rf mwc1 mwc7131 mwc-wallet1 *.tar.gz
 
 if grep --quiet PATH ~/.bashrc;
 then
@@ -80,6 +84,9 @@ do
   echo -n "Would you like to recover mwc-wallet $i from a mnemonic? [y/n] ";
   read -r input;
 
+
+  echo "1337" > .api_secret
+
 if [ ! -z "$input" ]
 then
   eval "$input=y";
@@ -98,7 +105,6 @@ else
 fi
 
   unset MWC_PASSWORD;
-  echo "1337" > .api_secret
 
   let "i=i+1";
 done
