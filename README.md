@@ -33,7 +33,7 @@ MWC full node's chain_data directory will be in ~/.mwc/main/chain_data, but copy
 
 IMPORTANT: Do not configure networking as that will compromize the cold storage nature of the setup.
 
-7.) Once you are in Ununtu, open a terminal and copy the setup.sh script over to your home directory:
+7.) Once you are in Ununtu, insert your MWC usb stick, open a terminal and copy the setup.sh script over to your home directory:
 
 ```# cp /media/ubuntu/<your_usb_device>/setup.sh .```
 
