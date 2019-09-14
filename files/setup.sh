@@ -36,9 +36,13 @@ cp mwc* ~/bin
 
 cd ~/bin
 
-tar zxvf mwc-v2.3.0-linux-gnu.tgz
-tar zxvf mwc-wallet-v2.0.2-linux-gnu.tgz
-tar zxvf mwc713.tgz
+tar zxvf mwc-node-2.4.0-linux-amd64.tar.gz
+tar zxvf mwc-wallet-2.4.0-linux-amd64.tar.gz
+tar zxvf mwc713-2.4.0-linux-amd64.tar.gz
+
+mv mwc/mwc .
+mv mwc713/mwc713 .
+mv mwc-wallet/mwc-wallet .
 
 rm -rf *.tgz
 
