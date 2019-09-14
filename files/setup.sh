@@ -37,7 +37,7 @@ cp mwc* ~/bin
 cd ~/bin
 
 tar zxvf mwc-node-2.4.0-linux-amd64.tar.gz
-tar zxvf mwc-wallet-2.4.0-linux-amd64.tar.gz
+tar zxvf mwc-wallet-2.4.2-linux-amd64.tar.gz 
 tar zxvf mwc713-2.4.0-linux-amd64.tar.gz
 
 mv mwc mwc1
@@ -96,7 +96,11 @@ if [  "$input" == "y" ]
 then
   echo -n "Input mwc-wallet $i mnemonic: ";
   read -r MNEMONIC;
-  script -q -c 'mwc-wallet --floonet init -h -r' <<EOM
+  export MWC_RECOVERY_PHRASE="$MNEMONIC";
+  export MWC_PASSWORD="";
+  mwc-wallet --floonet init -h -r
+  unset MWC_PASSWORD
+  unset MWC_RECOVERY_PHRASE
 $MNEMONIC
 
 EOM
