@@ -128,6 +128,7 @@ mwcmq_domain = "mq.mwc.mw"
 mwc_node_uri = "http://localhost:13413"
 mwc_node_secret = "1337"
 default_keybase_ttl = "24h"
+grinbox_listener_auto_start = false
 EOM
 
   echo -n "Would you like to recover mwc713 $i from a mnemonic? [y/n] ";
