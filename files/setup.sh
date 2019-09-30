@@ -1,12 +1,13 @@
 #!/bin/bash
 
 c=0
-cd /media/ubuntu;
-for file in $( ls );
+for file in "/media/ubuntu"/*
 do
-  eval "var$c=/media/ubuntu/$file";
+echo $file;
+  eval "var$c='$file'";
   c=$((c+1));
 done
+cd /media/ubuntu;
 
 dir=$var0;
 
@@ -31,7 +32,7 @@ killall -q -9 mwc
 mkdir -p ~/bin
 cd ~
 
-cd $dir/
+cd "$dir/"
 cp mwc* ~/bin
 
 cd ~/bin
@@ -65,7 +66,7 @@ mwc --floonet server config
 perl -pi -e 's/run_tui = true/run_tui = false/g' ~/.mwc/floo/mwc-server.toml
 echo "1337" > ~/.mwc/floo/.api_secret
 rm -rf ~/.mwc/floo/chain_data
-cp -pr $dir/node-files/chain_data ~/.mwc/floo
+cp -pr "$dir"/node-files/chain_data ~/.mwc/floo
 mwc --floonet &
 sleep 1
 
