@@ -63,7 +63,7 @@ fi
 mkdir -p ~/.mwc/main
 cd ~/.mwc/main
 mwc server config
-perl -pi -e 's/run_tui = true/run_tui = false/g' ~/.mwc/floo/mwc-server.toml
+perl -pi -e 's/run_tui = true/run_tui = false/g' ~/.mwc/main/mwc-server.toml
 echo "1337" > ~/.mwc/main/.api_secret
 rm -rf ~/.mwc/main/chain_data
 cp -pr "$dir"/node-files/chain_data ~/.mwc/main
