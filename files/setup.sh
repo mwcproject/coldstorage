@@ -37,9 +37,9 @@ cp mwc* ~/bin
 
 cd ~/bin
 
-tar zxvf mwc-node-2.4.0-linux-amd64.tar.gz
-tar zxvf mwc-wallet-2.4.2-linux-amd64.tar.gz 
-tar zxvf mwc713-2.4.0-linux-amd64.tar.gz
+tar zxvf mwc-node-2.4.3-linux-amd64.tar.gz
+tar zxvf mwc-wallet-2.4.5-linux-amd64.tar.gz 
+tar zxvf mwc713-2.4.8-linux-amd64.tar.gz
 
 mv mwc mwc1
 mv mwc713 mwc7131
@@ -60,14 +60,14 @@ echo "export PATH=$PATH:/home/ubuntu/bin" >> ~/.bashrc;
 export PATH=$PATH:/home/ubuntu/bin;
 fi
 
-mkdir -p ~/.mwc/floo
-cd ~/.mwc/floo
-mwc --floonet server config
+mkdir -p ~/.mwc/main
+cd ~/.mwc/main
+mwc server config
 perl -pi -e 's/run_tui = true/run_tui = false/g' ~/.mwc/floo/mwc-server.toml
-echo "1337" > ~/.mwc/floo/.api_secret
-rm -rf ~/.mwc/floo/chain_data
-cp -pr "$dir"/node-files/chain_data ~/.mwc/floo
-mwc --floonet &
+echo "1337" > ~/.mwc/main/.api_secret
+rm -rf ~/.mwc/main/chain_data
+cp -pr "$dir"/node-files/chain_data ~/.mwc/main
+mwc &
 sleep 1
 
 echo -n "How many mwc-wallet instances? "
@@ -99,12 +99,12 @@ then
   read -r MNEMONIC;
   export MWC_RECOVERY_PHRASE="$MNEMONIC";
   export MWC_PASSWORD="";
-  mwc-wallet --floonet init -h -r
+  mwc-wallet init -h -r
   unset MWC_PASSWORD
   unset MWC_RECOVERY_PHRASE
   echo "" | mwc-wallet restore
 else
-  mwc-wallet --floonet init -h
+  mwc-wallet init -h
 fi
 
   unset MWC_PASSWORD;
@@ -124,11 +124,11 @@ do
   mkdir -p ~/mwc713wallets/$i;
 
   tee -a ~/mwc713wallets/$i/config <<EOM
-chain = "Floonet"
+chain = "Mainnet"
 wallet713_data_path = "wallet713_data"
 keybase_binary = "keybase"
 mwcmq_domain = "mq.mwc.mw"
-mwc_node_uri = "http://localhost:13413"
+mwc_node_uri = "http://localhost:3413"
 mwc_node_secret = "1337"
 default_keybase_ttl = "24h"
 grinbox_listener_auto_start = false
@@ -149,12 +149,12 @@ then
   echo -n "Input mwc713 wallet $i mnemonic: ";
   read -r MNEMONIC;
 
-mwc713 --floonet -c ~/mwc713wallets/$i/config recover --mnemonic "$MNEMONIC" <<EOM
+mwc713 -c ~/mwc713wallets/$i/config recover --mnemonic "$MNEMONIC" <<EOM
 
 EOM
   else
 
-mwc713 --floonet -c ~/mwc713wallets/$i/config init <<EOM
+mwc713 -c ~/mwc713wallets/$i/config init <<EOM
 
 
 EOM
