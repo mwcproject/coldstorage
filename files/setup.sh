@@ -37,7 +37,7 @@ cp mwc* ~/bin
 
 cd ~/bin
 
-tar zxvf mwc-node-3.0.0-linux-amd64.tar.gz
+tar zxvf mwc-node-3.1.1-linux-amd64.tar.gz
 tar zxvf mwc-wallet-2.4.5-linux-amd64.tar.gz 
 tar zxvf mwc713-2.4.8-linux-amd64.tar.gz
 
