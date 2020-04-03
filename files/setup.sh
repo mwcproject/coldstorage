@@ -38,8 +38,8 @@ cp mwc* ~/bin
 cd ~/bin
 
 tar zxvf mwc-node-3.1.1-linux-amd64.tar.gz
-tar zxvf mwc-wallet-2.4.5-linux-amd64.tar.gz 
-tar zxvf mwc713-2.4.8-linux-amd64.tar.gz
+tar zxvf mwc-wallet-3.1.5-linux-amd64.tar.gz
+tar zxvf mwc713-3.1.2-linux-amd64.tar.gz
 
 mv mwc mwc1
 mv mwc713 mwc7131
@@ -102,7 +102,7 @@ then
   mwc-wallet init -h -r
   unset MWC_PASSWORD
   unset MWC_RECOVERY_PHRASE
-  echo "" | mwc-wallet restore
+  #echo "" | mwc-wallet restore
 else
   mwc-wallet init -h
 fi
